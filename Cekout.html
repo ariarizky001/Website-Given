@@ -4,42 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="cekout.css">
 </head>
 <body>
     <header>
         <h1>Checkout Pesanan</h1>
     </header>
-    <section class="checkout-container">
-        <div class="order-summary">
+    <main class="checkout-container">
+
+        <section class="order-summary">
             <h2>Ringkasan Pesanan</h2>
             <form id="order-form">
+        
                 <div class="order-item">
                     <label for="fruit-punch-quantity">Fruit Punch Cocktail</label>
                     <input type="number" id="fruit-punch-quantity" name="fruit-punch-quantity" value="1" min="1">
                     <p class="item-price">Rp 25.000</p>
                     <p class="item-total" id="fruit-punch-total">Total: Rp 25.000</p>
                 </div>
+
+     
                 <div class="order-item">
                     <label for="cheeseburger-quantity">Classic Cheeseburger</label>
                     <input type="number" id="cheeseburger-quantity" name="cheeseburger-quantity" value="1" min="1">
                     <p class="item-price">Rp 20.000</p>
                     <p class="item-total" id="cheeseburger-total">Total: Rp 20.000</p>
                 </div>
+
                 <div class="order-item">
                     <label for="pasta-quantity">Creamy Alfredo Pasta</label>
                     <input type="number" id="pasta-quantity" name="pasta-quantity" value="1" min="1">
                     <p class="item-price">Rp 18.000</p>
                     <p class="item-total" id="pasta-total">Total: Rp 18.000</p>
                 </div>
+
+
                 <div class="order-total">
                     <p><strong>Total Pembayaran:</strong> Rp <span id="total-payment">63.000</span></p>
                 </div>
+
+      
                 <button type="submit" class="submit-btn">Konfirmasi Pembayaran</button>
             </form>
-        </div>
+        </section>
 
-        <div class="checkout-form">
+
+        <section class="checkout-form">
             <h2>Informasi Pengiriman</h2>
             <form>
                 <label for="name">Nama Lengkap:</label>
@@ -60,11 +70,11 @@
 
                 <button type="submit" class="submit-btn">Konfirmasi Pembayaran</button>
             </form>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script>
-        // Function to update the total prices based on the quantity
+
         const updateTotalPrice = () => {
             const fruitPunchQuantity = document.getElementById('fruit-punch-quantity').value;
             const cheeseburgerQuantity = document.getElementById('cheeseburger-quantity').value;
@@ -78,15 +88,14 @@
             const cheeseburgerTotal = cheeseburgerQuantity * cheeseburgerPrice;
             const pastaTotal = pastaQuantity * pastaPrice;
 
-            // Update individual item totals
+         
             document.getElementById('fruit-punch-total').textContent = `Total: Rp ${fruitPunchTotal}`;
             document.getElementById('cheeseburger-total').textContent = `Total: Rp ${cheeseburgerTotal}`;
             document.getElementById('pasta-total').textContent = `Total: Rp ${pastaTotal}`;
 
-            // Update overall total
             const totalPayment = fruitPunchTotal + cheeseburgerTotal + pastaTotal;
             document.getElementById('total-payment').textContent = totalPayment;
-        }
+        };
 
         // Add event listeners to input fields to update totals when quantity changes
         document.getElementById('fruit-punch-quantity').addEventListener('input', updateTotalPrice);
